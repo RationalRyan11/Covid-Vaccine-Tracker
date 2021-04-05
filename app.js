@@ -9,8 +9,7 @@ const sqlite3 = require("sqlite3").verbose();
 //Set the view engine to the one we have
 app.set("view engine", "ejs");
 
-//I think this is for setting up the 'path'usages
-app.use('/', router);
+
 
 //serve static files in express
 app.use(express.static(path.join(__dirname, "public")));
@@ -49,12 +48,12 @@ const sql_insert = `INSERT INTO User (Name, Surname, Location) VALUES
     ('Garviel','Loken', 'Cadia');`;
 
 //Runs sql string. 
-db.run(sql_insert, (err) => {
-      if (err) {
-        return console.error(err.message);
-      }
-      //console.log("Successful creation of 2 users");
-    });
+//db.run(sql_insert, (err) => {
+//      if (err) {
+ //       return console.error(err.message);
+ //     }
+ //     //console.log("Successful creation of 2 users");
+ //   });
 
 
 
@@ -78,13 +77,31 @@ router.get("/", function (req, res) {
       //console.log("rows - " + rows.length);
       //__dirname resolves to your project folder.
       res.render(__dirname + "/views/index.ejs", {
-        status: "No status",
+        status: "Please Input Your Info",
         users: rows,
       });
     });
   });
 
+// How to post to database
+router.post("/", function (req, res) {
+    console.log(req.body);
+    const user = [req.body.name, req.body.surname, req.body.location]
+    console.log("Submitted name: " + req.body.name);
+    console.log("Submitted surname: " + req.body.surname);
+    console.log("Submitted location: " + req.body.location);
 
+    const sql = "INSERT INTO User (Name, Surname,Location) VALUES (?,?,?)";
+    db.run(sql, user, (err) => {
+      // if (err) ...
+      res.render(__dirname + "/views/index.ejs", { status: "Thank You" });
+      //res.redirect("/");
+    });
+  });
+
+
+//I think this is for setting up the 'path'usages
+app.use('/', router);
 
 app.listen(process.env.port || 3000);
 

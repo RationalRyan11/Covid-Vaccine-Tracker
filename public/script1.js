@@ -30,12 +30,20 @@ function addRow()
 }
 
 function processFormSubmission() {
-    var first_name = document.getElementById("fname").value;
-    var last_name = document.getElementById("lname").value;
+
+    console.log("we get here");
+
+    var first_name = document.getElementById("name").value;
+    var last_name = document.getElementById("surname").value;
+    var location = document.getElementById("location").value;
+
   
-    document.getElementById("form_fname").innerHTML = first_name;
-    document.getElementById("form_lname").innerHTML = last_name;
+    document.getElementById("name").innerHTML = first_name;
+    document.getElementById("surname").innerHTML = last_name;
+    document.getElementById("location").innerHTML = location;
   
     return true; //submit form i.e. process action
     // return false;   // do not submit the form
   }
+
+  

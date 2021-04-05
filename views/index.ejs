@@ -31,14 +31,14 @@
         <div>
             <label for="name">Name:</label> </body> </div>
             <div>
-            <input type="text" id="name" name="name">
+            <input type="text" id="name" name="name" value="John">
         </div>
 
         <div>
             <label for="surname">Surname:</label>
         </div>
         <div>
-            <input type="text" id="surname" name="surname">
+            <input type="text" id="surname" name="surname" value="Default">
         </div>
 
         <div>
@@ -63,11 +63,11 @@
             <label for="location">Location where vaccine was received:</label>
         </div>
         <div>
-            <input type="text" id="location" name="location">
+            <input type="text" id="location" name="location" value="Default">
         </div>
         
         <div id="target">
-            <button type="button" id="updateButton" onclick="addRow();">Submit.</button>
+            <input type="submit" value="Submit" />
         </div>
     </form>
 </div>
@@ -91,7 +91,7 @@
                 <tr>No data</tr> 
               <% } else { %> 
                 <% for (let i = 0; i < users.length; i++) { %>
-                  <tr><td><%= users[i].Name %></td> <td> <%= users[i].Surname %> </td> <td> Blank </td> <td> Blank </td> <td> <%= users[i].Location %> </td> </tr>
+                  <tr><td><%= users[i].Name %></td> <td> <%= users[i].Surname %> </td> <td> TBI </td> <td> TBI </td> <td> <%= users[i].Location %> </td> </tr>
                 <% } %>
             <% } %>
 

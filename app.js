@@ -86,6 +86,8 @@ router.get("/", function (req, res) {
 // How to post to database
 router.post("/", function (req, res) {
     console.log(req.body);
+    console.log(req.body.vaccinetype+"this means its a string I guess?")
+    
     const user = [req.body.name, req.body.surname, req.body.location]
     console.log("Submitted name: " + req.body.name);
     console.log("Submitted surname: " + req.body.surname);
@@ -94,9 +96,10 @@ router.post("/", function (req, res) {
     const sql = "INSERT INTO User (Name, Surname,Location) VALUES (?,?,?)";
     db.run(sql, user, (err) => {
       // if (err) ...
-      res.render(__dirname + "/views/index.ejs", { status: "Thank You" });
+      
       //res.redirect("/");
     });
+    res.render(__dirname + "/views/index.ejs", { status: "Thank You" });
   });
 
 

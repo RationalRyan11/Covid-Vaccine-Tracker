@@ -67,7 +67,7 @@
         </div>
         
         <div id="target">
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" id="submit"/>
         </div>
     </form>
 </div>
@@ -88,7 +88,7 @@
             </tr>
 
             <% if ( typeof(users) =="undefined") { %>
-                <tr>No data</tr> 
+                <tr>Please refrest to see new table.</tr> 
               <% } else { %> 
                 <% for (let i = 0; i < users.length; i++) { %>
                   <tr><td><%= users[i].Name %></td> <td> <%= users[i].Surname %> </td> <td> TBI </td> <td> TBI </td> <td> <%= users[i].Location %> </td> </tr>
@@ -98,11 +98,6 @@
         </table>
     </div>
     </div>
-    <h2></h2>
-    <ul>
-        
-      
-      </ul>
 </body>
 </html>
 

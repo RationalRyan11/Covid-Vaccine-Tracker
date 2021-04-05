@@ -57,7 +57,17 @@ button {
 
 }
 
+#submit {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px dashed rgb(122, 181, 201);
+  background-color: lightblue;
+  position: relative;
+  left: 40%;
 
+}
 
 #header {
   background-color: rgb(122, 181, 201);

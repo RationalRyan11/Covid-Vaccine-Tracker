@@ -1,0 +1,97 @@
+  
+<!DOCTYPE html>
+<script>
+</script>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>This Is The New Covid Registration</title>
+    <link href="./public/styles.css" rel="stylesheet">
+    <script type="text/javascript" src="./Public/script1.js"> </script>
+
+  </head>
+
+
+  <body>
+      <div id="header">
+    <header>
+
+
+    <h1>Covid Registration New and Improved </h1>
+    </header>
+    
+    <img id="injection" src="./public/injection.jpg" height="200" width="150">
+    <img id="injection2" src="./public/injection2.jpg" height="200" width="150">
+    </div>
+    <div id="block1">
+    <h2>Covid Registration Form</h2>
+    <p>Please fill in this form to add your information to our table.</p>
+    <p>  <br> </p>
+    <form name="form1" method="post" onsubmit="return processFormSubmission();" action="/" >
+        <div>
+            <label for="name">Name:</label> </body> </div>
+            <div>
+            <input type="text" id="name" name="name">
+        </div>
+
+        <div>
+            <label for="surname">Surname:</label>
+        </div>
+        <div>
+            <input type="text" id="surname" name="surname">
+        </div>
+
+        <div>
+            <label for="date">Date Vaccinated:</label>
+        </div>
+        <div>
+            <input type="date" id="date" name="date">
+        </div>
+
+        <div>
+            <label for="Vaccine Type">Type of vaccine:</label> <div>
+            <select name="vaccinetype" id="vaccinetype">
+            <option value="Pfizer-BioNTech">Pfizer-BioNTech</option>
+            <option value="Moderna">Moderna</option>
+            <option value="Johnson & Johnson">Johnson & Johnson</option>
+            </select>
+            </div>
+        </div>
+
+
+        <div>
+            <label for="location">Location where vaccine was received:</label>
+        </div>
+        <div>
+            <input type="text" id="location" name="location">
+        </div>
+        
+        <div id="target">
+            <button type="button" id="updateButton" onclick="addRow();">Submit.</button>
+        </div>
+    </form>
+</div>
+<div id="tableblock">
+    <div >
+        <h2>Registration Table</h2>
+    </div>
+    <div  id="div5">
+
+
+        <table id="table1">
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Date</th>
+                <th>Vaccine Type</th>
+                <th>Location</th>
+            </tr>
+
+
+        </table>
+    </div>
+    </div>
+    <h2></h2>
+</body>
+</html>
+

@@ -53,7 +53,7 @@ db.run(sql_insert, (err) => {
       if (err) {
         return console.error(err.message);
       }
-      console.log("Successful creation of 2 users");
+      //console.log("Successful creation of 2 users");
     });
 
 
@@ -71,11 +71,11 @@ router.get("/", function (req, res) {
       }
 
       //Just playing around with this for debugging purposes
-      rows.forEach((row) => {
-        console.log(row.Name);
-      });
+      //rows.forEach((row) => {
+      //  console.log(row.Name);
+      //});
   
-      console.log("rows - " + rows.length);
+      //console.log("rows - " + rows.length);
       //__dirname resolves to your project folder.
       res.render(__dirname + "/views/index.ejs", {
         status: "No status",

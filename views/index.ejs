@@ -87,11 +87,22 @@
                 <th>Location</th>
             </tr>
 
+            <% if ( typeof(users) =="undefined") { %>
+                <tr>No data</tr> 
+              <% } else { %> 
+                <% for (let i = 0; i < users.length; i++) { %>
+                  <tr><td><%= users[i].Name %></td> <td> <%= users[i].Surname %> </td> <td> Blank </td> <td> Blank </td> <td> <%= users[i].Location %> </td> </tr>
+                <% } %>
+            <% } %>
 
         </table>
     </div>
     </div>
     <h2></h2>
+    <ul>
+        
+      
+      </ul>
 </body>
 </html>
 

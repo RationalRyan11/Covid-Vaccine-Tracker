@@ -31,7 +31,9 @@ const sql_create = `CREATE TABLE IF NOT EXISTS User (
     User_ID INTEGER PRIMARY KEY AUTOINCREMENT,
     Name VARCHAR(100) NOT NULL,
     Surname VARCHAR(100) NOT NULL,
-    Location VARCHAR(100) NOT NULL
+    Location VARCHAR(100) NOT NULL,
+    Vaccinetype VARCHAR(100) NOT NULL,
+    Date VARCHAR(100) NOT NULL
   );`;
 
 
@@ -43,17 +45,17 @@ db.run(sql_create, (err) => {
     console.log("Successful creation of the 'User' table")});
   
 // Creates string for sql command
-const sql_insert = `INSERT INTO User (Name, Surname, Location) VALUES
-    ('Ryan','Davies','Claremont'),
-    ('Garviel','Loken', 'Cadia');`;
+//const sql_insert = `INSERT INTO User (Name, Surname,Location,Vaccinetype,Date) VALUES
+//    ('Ryan','Davies','Claremont','Moderna','2021-05-01'),
+//    ('Garviel','Loken', 'Cadia','Pfzier','2021-01-01');`;
 
 //Runs sql string. 
 //db.run(sql_insert, (err) => {
-//      if (err) {
- //       return console.error(err.message);
- //     }
- //     //console.log("Successful creation of 2 users");
- //   });
+ //     if (err) {
+ //      return console.error(err.message);
+  //    }
+  //    //console.log("Successful creation of 2 users");
+  //  });
 
 
 
@@ -85,21 +87,41 @@ router.get("/", function (req, res) {
 
 // How to post to database
 router.post("/", function (req, res) {
-    console.log(req.body);
-    console.log(req.body.vaccinetype+"this means its a string I guess?")
+
     
-    const user = [req.body.name, req.body.surname, req.body.location]
+    
+    
+    const user = [req.body.name, req.body.surname, req.body.location, req.body.vaccinetype, req.body.date]
     console.log("Submitted name: " + req.body.name);
     console.log("Submitted surname: " + req.body.surname);
     console.log("Submitted location: " + req.body.location);
+    console.log("Submitted date: " + req.body.date);
+    console.log("Submitted vaccine type: " + req.body.vaccinetype);
 
-    const sql = "INSERT INTO User (Name, Surname,Location) VALUES (?,?,?)";
+    const sql = "INSERT INTO User (Name, Surname,Location,Vaccinetype,Date) VALUES (?,?,?,?,?)";
     db.run(sql, user, (err) => {
       // if (err) ...
       
       //res.redirect("/");
     });
-    res.render(__dirname + "/views/index.ejs", { status: "Thank You" });
+    const sql2 = "SELECT * FROM User";
+    db.all(sql2, [], (err, rows) => {
+      if (err) {
+        return console.error(err.message);
+      }
+
+      //Just playing around with this for debugging purposes
+      //rows.forEach((row) => {
+      //  console.log(row.Name);
+      //});
+  
+      //console.log("rows - " + rows.length);
+      //__dirname resolves to your project folder.
+      res.render(__dirname + "/views/index.ejs", {
+        status: "Please Input Your Info",
+        users: rows,
+      });
+    });
   });
 
 

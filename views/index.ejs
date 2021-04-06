@@ -31,30 +31,26 @@
         <div>
             <label for="name">Name:</label> </body> </div>
             <div>
-            <input type="text" id="name" name="name" value="John">
+            <input type="text" id="name" name="name" placeholder="Joe" required>
         </div>
 
         <div>
             <label for="surname">Surname:</label>
         </div>
         <div>
-            <input type="text" id="surname" name="surname" value="Default">
+            <input type="text" id="surname" name="surname" placeholder="Soap" required>
         </div>
 
         <div>
             <label for="date">Date Vaccinated:</label>
         </div>
         <div>
-            <input type="date" id="date" name="date">
+            <input type="date" id="date" name="date" required>
         </div>
 
         <div>
             <label for="Vaccine Type">Type of vaccine:</label> <div>
-            <select name="vaccinetype" id="vaccinetype">
-            <option value="Pfizer-BioNTech">Pfizer-BioNTech</option>
-            <option value="Moderna">Moderna</option>
-            <option value="Johnson & Johnson">Johnson & Johnson</option>
-            </select>
+            <input type="text" id="vaccinetype" name="vaccinetype" placeholder="Moderna" required>
             </div>
         </div>
 
@@ -63,7 +59,7 @@
             <label for="location">Location where vaccine was received:</label>
         </div>
         <div>
-            <input type="text" id="location" name="location" value="Default">
+            <input type="text" id="location" name="location" placeholder="Cape Town" required>
         </div>
         
         <div id="target">
@@ -91,7 +87,7 @@
                 <tr>Please refrest to see new table.</tr> 
               <% } else { %> 
                 <% for (let i = 0; i < users.length; i++) { %>
-                  <tr><td><%= users[i].Name %></td> <td> <%= users[i].Surname %> </td> <td> TBI </td> <td> TBI </td> <td> <%= users[i].Location %> </td> </tr>
+                  <tr><td><%= users[i].Name %></td> <td> <%= users[i].Surname %> </td> <td> <%= users[i].Date %> </td> <td> <%= users[i].Vaccinetype %> </td> <td> <%= users[i].Location %> </td> </tr>
                 <% } %>
             <% } %>
 

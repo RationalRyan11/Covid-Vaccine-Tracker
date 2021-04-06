@@ -31,16 +31,20 @@ function addRow()
 
 function processFormSubmission() {
 
-    console.log("we get here");
-
     var first_name = document.getElementById("name").value;
     var last_name = document.getElementById("surname").value;
     var location = document.getElementById("location").value;
+    var date = document.getElementById("date").value;
+    var vaccinetype = document.getElementById("vaccinetype").value;
+
 
   
     document.getElementById("name").innerHTML = first_name;
     document.getElementById("surname").innerHTML = last_name;
     document.getElementById("location").innerHTML = location;
+    document.getElementById("vaccinetype").innerHTML = vaccinetype;
+    document.getElementById("date").innerHTML = date;
+
   
     return true; //submit form i.e. process action
     // return false;   // do not submit the form

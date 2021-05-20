@@ -1,5 +1,5 @@
-var Day1RegistryArtifact = artifacts.require("Day1Registry");
+var covidVaccineRegisterArtifact = artifacts.require("covidVaccineRegister");
 
 module.exports = function (deployer) {
-  deployer.deploy(Day1RegistryArtifact);
+  deployer.deploy(covidVaccineRegisterArtifact );
 };

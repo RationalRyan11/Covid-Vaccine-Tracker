@@ -23,6 +23,12 @@
     <img id="injection" src="./injection.jpg" height="200" width="150">
     <img id="injection2" src="./injection2.jpg" height="200" width="150">
     </div>
+
+    <h2>Blockchain Setup</h2>
+    <button class="enableEthereumButton">Enable Ethereum</button> 
+    <h2>Account: <span class="showAccount"></span></h2>
+
+
     <div id="block1">
     <h2>Covid Registration Form</h2>
     <p>Please fill in this form to add your information to our table.</p>
@@ -45,7 +51,7 @@
             <label for="date">Date Vaccinated:</label>
         </div>
         <div>
-            <input type="date" id="date" name="date" required>
+            <input type="text" id="date" name="date" required>
         </div>
 
         <div>
@@ -84,16 +90,33 @@
             </tr>
 
             <% if ( typeof(users) =="undefined") { %>
-                <tr>Please refrest to see new table.</tr> 
+                <<tr>>Please refresh to see new table.</tr> 
               <% } else { %> 
                 <% for (let i = 0; i < users.length; i++) { %>
-                  <tr><td><%= users[i].Name %></td> <td> <%= users[i].Surname %> </td> <td> <%= users[i].Date %> </td> <td> <%= users[i].Vaccinetype %> </td> <td> <%= users[i].Location %> </td> </tr>
+                  <tr><td><%= users[i].Name %></td> <td> <%= users[i].Surname %> </td> <td> <%= users[i].Date %> </td> <td> <%= users[i].Vaccinetype %> </td> <td> <%= users[i].Location %> </td> 
+                <td> <a  href="javascript:void(0);" class="btn btn-xs btn-success blockchain addUserToBlockchainBtn"
+                    data-name="<%= users[i].Name %>"
+                    data-surname="<%= users[i].Surname %>"
+                    data-date="<%= users[i].Date %>"
+                    data-vaccinetype="<%= users[i].VaccineType %>"
+                    data-location="<%= users[i].Location %>" >
+                    Add to Blockchain </a> </td> </tr>
+                   
                 <% } %>
             <% } %>
 
         </table>
     </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- jQuery from Google Content Delivery Network (CDN)-->
+    
+    <script src="https://cdn.ethers.io/scripts/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script> <!-- This exposes the library as a global variable: ethers -->
+
+    <script src="./script1.js"></script> <!-- A basic JavaScript file that contains the logic for the popup on a button click --> 
+    
+    <script src="./covidVaccineTracker_blockchain.js"></script> <!-- Blockchain integration-->
+
 </body>
 </html>
 

@@ -70,11 +70,13 @@ const isMetaMaskInstalled = () => {
      */
   
     // in order to create a contract instance, we need the contract address and its ABI
-    covidVaccineTrackeraddress = "0x707AF15cFA1e928611d9A27e1e2750926aF11995";
+    covidVaccineTrackerAddress = "0xD4b0e98A3c65E9613712D23a79a1870BE1eE43A0";
   
     // the Application Binary interface (ABI) of the contract code is just a list of method signatures,
     // return types, members etc of the contract in a defined JSON format.
     // This ABI is needed when you will call your contract from a real javascript client e.g. a node.js web application.
+
+    /*
     covidVaccineTrackerABI = [
         {
           constant: true,
@@ -222,13 +224,13 @@ const isMetaMaskInstalled = () => {
           type: "function"
         },
     ];
-  
+    */ 
     // alternative to manually adding the ABI is to get it directly from the JSON file. This is actually the better way :)
-    /* try {
+    try {
               const data = await $.getJSON("../contracts/covidVaccineRegister.json");
               const netId = await web3.eth.net.getId();
               const deployedNetwork = data.networks[netId];
-              const day1Contract = new web3.eth.Contract(
+              const covidVaccineRegister = new web3.eth.Contract(
               data.abi,
               deployedNetwork && deployedNetwork.address
               );
@@ -236,7 +238,7 @@ const isMetaMaskInstalled = () => {
           var message_description = "Error accessing contract JSON.";
           //TODO - trigger pop up notification
           return console.log(message_description);
-      } */
+      } 
   
     /* The JSON interface is a JSON object describing the Application Binary Interface (ABI) for an Ethereum smart contract.
           Using this JSON interface, web3.js is able to create JavaScript object representing the smart contract and its methods and 
@@ -329,7 +331,7 @@ const isMetaMaskInstalled = () => {
       console.log({ provider });
       const signer = provider.getSigner();
       const covidVaccineRegister = new ethers.Contract(
-        covidVaccineTrackeraddress,
+        "0x4d4184C9c585a251a0a0a521fAF289340D002d01",
         covidVaccineTrackerABI,
         signer
       );
